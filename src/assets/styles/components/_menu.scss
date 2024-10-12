@@ -1,0 +1,143 @@
+.menu_wrapper {
+  width: 100px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.4s ease, background-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #040404;
+  padding: 10px;
+  z-index: 10;
+
+  .menu_avatar {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.4s;
+    padding: 20px;
+
+    div {
+      width: 50px;
+      height: 50px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    p {
+      color: #F1F1F1;
+      font-size: 18px;
+      font-weight: 600;
+      margin-left: 20px;
+    }
+  }
+
+  .menu_item_wrapper {
+    padding: 0 20px;
+
+    .menu_item {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-bottom: 35px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+
+      div {
+        width: 20px;
+        height: 20px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      p {
+        position: absolute;
+        opacity: 0;
+        color: #F1F1F1;
+        left: 60px;
+        transition: all 0.4s;
+        font-size: 23px;
+        font-weight: 400;
+      }
+
+      &:hover {
+        background: #3B486D;
+      }
+
+      &.active {
+        background: #3B486D;
+
+        p{
+          font-weight: 700;
+
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+  }
+
+  .menu_bottom_item_wrapper {
+    opacity: 0;
+    transition: all 0.4s;
+    padding: 35px;
+
+    div {
+      font-size: 18px;
+      font-weight: 600;
+      color: #858688;
+      margin-bottom: 25px;
+      cursor: pointer;
+      transition: all 0.4s;
+
+      &:hover {
+        color: #F1F1F1;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &:hover {
+    width: 250px;
+    background: rgba(4, 4, 4, 0.8);
+
+    .menu_avatar {
+      opacity: 1;
+    }
+
+    .menu_item {
+      padding: 10px 15px;
+      border-radius: 10px;
+
+      p {
+        opacity: 1;
+      }
+    }
+
+    .menu_bottom_item_wrapper {
+      opacity: 1;
+    }
+
+    & + * {
+      opacity: 0.8;
+    }
+  }
+}
+
