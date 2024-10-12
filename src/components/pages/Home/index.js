@@ -60,7 +60,6 @@ const Index = () => {
                 <div className="background-video">
                   <video autoPlay muted loop={false} onEnded={endedVideo} width={windowWidth - 115} height={windowHeight - 10}>
                     <source src={'/videos/video.mp4'} type="video/mp4"/>
-                    Your browser does not support the video tag.
                   </video>
                 </div>
               )}
