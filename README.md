@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# React.js TV Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Task Description
 
-## Available Scripts
+Create a web app based on the given design using React.js. The app will function as a TV application, showcasing the following features:
 
-In the project directory, you can run:
+### Pages
+- **Home Page**
+- **Home Page Menu**
 
-### `npm start`
+The provided assets include:
+- Images
+- Videos
+- JSON data for all necessary video information
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Main Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### 1. Main Menu with Icons
+- The menu is located on the left side of the screen, displaying icons for:
+    - Search
+    - Home
+    - TV Shows
+    - Movies
+    - Genres
+    - Watch Later
+- On hover, the menu expands with a floating animation (from left to right), and the background opacity transitions from 0% to 80%.
+- When expanded, the menu displays user profile information, including icons and name, as well as additional menu options at the bottom (e.g., Language, Get Help, Exit).
 
-### `npm test`
+#### 2. Main Featured Video
+- The top-left section showcases the last featured movie.
+- The featured block contains:
+    - Video cover image
+    - Category name (e.g., Movie)
+    - Transparent PNG movie logo
+    - Release year
+    - MPA rating
+    - Duration
+    - Short description
+    - Two buttons: Play and More Info
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 3. Trending Now Section
+- Displays a carousel of trending videos (maximum 50 items), sorted by the latest added or created.
+- Initially, only the first 8 videos are visible, and users can scroll or drag to reveal more.
+- The carousel only shows movie covers.
 
-### `npm run build`
+### User Interaction
+- When a user clicks on a movie, the **Main Featured Video** section updates to display the selected movie's information (cover image, category, title, description).
+- After clicking, the background of the featured section changes to a video player (without controls) after a 2-second delay. The video starts playing automatically using the URL from the JSON file.
+- The movie ID is saved in `sessionStorage`, and on the next page refresh, the movie list is sorted so that the last clicked (or seen) video appears first, followed by the remaining movies in their default order.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Design Files
+- Adobe XD designs:
+    - [Design 1](https://xd.adobe.com/view/dd63b338-292e-4e68-924e-157ad53f2151-8830/)
+    - [Design 2](https://xd.adobe.com/view/a8d070e9-3db2-4834-bce7-e7dbcbb243da-fd83/)

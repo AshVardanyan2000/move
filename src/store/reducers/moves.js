@@ -11,20 +11,40 @@ const initialState = {
 const reducer = createReducer(initialState, (builder) => {
   builder
     .addCase(getTendingNow.fulfilled, (state, { payload }) => {
-      const moveId = Utils.getMoveId()
-      const tendingNow = (moveId
-        ? [...payload.TendingNow, payload.Featured]
-        : [payload.Featured, ...payload.TendingNow]).sort((a, b) => new Date(b.Date) - new Date(a.Date)).slice(0, 50)
+      const moveIds = Utils.getMoveIds();
 
-      state.tendingNow = tendingNow;
-      state.featured = moveId ? tendingNow.find(d => +d.Id === +Utils.getMoveId()) : payload.Featured
+      const tendingNow = (moveIds?.[0]
+        ? [...payload.TendingNow, payload.Featured]
+        : [payload.Featured, ...payload.TendingNow]).sort((a, b) => new Date(b.Date) - new Date(a.Date)).slice(0, 50);
+
+
+      state.tendingNow = moveIds?.[0] ? tendingNow.sort((a, b) => {
+        const indexA = moveIds.indexOf(a.Id);
+        const indexB = moveIds.indexOf(b.Id);
+
+        if (indexA !== -1 && indexB !== -1) {
+          return indexA - indexB;
+        }
+        if (indexA === -1) return 1;
+        if (indexB === -1) return -1;
+
+        return 0;
+      }) : tendingNow;
+
+      state.featured = moveIds?.[0] ? tendingNow.find(d => +d.Id === +moveIds[0]) : payload.Featured;
     })
 
     .addCase(changeFeaturedData, (state, { payload }) => {
-      Utils.setMoveId(payload.Id)
+      const moveIds = Utils.getMoveIds();
+
+      Utils.setMoveIds( _.uniq([payload.Id, ...moveIds]));
+
       state.featured = payload;
-      state.tendingNow = _.uniqBy([payload, ...state.tendingNow], 'Id');
+      state.tendingNow =  _.uniqBy([payload, ...state.tendingNow], 'Id');
     })
 });
 
 export default reducer;
+
+
+

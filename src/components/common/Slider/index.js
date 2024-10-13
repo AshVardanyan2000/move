@@ -24,6 +24,7 @@ const Index = ({ list, onClick }) => {
               onClick={() => onClick(l)}
               className="slider_item"
             >
+              {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
               <img src={`/images/${l.CoverImage}`} alt="image" />
             </div>
           </SwiperSlide>

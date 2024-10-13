@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
 
-const useWindowSize = (mobileMaxWidth = 767) => {
-  const [isMobile, isMobileToggle] = useState(false);
+const useWindowSize = () => {
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
 
   useEffect(() => {
     const handleScreen = () => {
-      isMobileToggle(window.innerWidth <= mobileMaxWidth);
       setWindowWidth(window.innerWidth);
-      setWindowHeight(window.innerHeight)
+      setWindowHeight(window.innerHeight);
     };
 
     window.addEventListener('resize', handleScreen);
@@ -19,7 +17,7 @@ const useWindowSize = (mobileMaxWidth = 767) => {
     return () => window.removeEventListener('resize', handleScreen);
   }, []);
 
-  return {windowWidth, windowHeight,isMobile };
+  return {windowWidth, windowHeight };
 };
 
 export default useWindowSize;

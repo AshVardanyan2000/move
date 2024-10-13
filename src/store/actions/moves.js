@@ -6,8 +6,8 @@ export const getTendingNow = createAsyncThunk('get/tending/now', async (payload,
   try {
 
     await new Promise(resolve => setTimeout(resolve, 500));
-    console.log(data)
-    return data
+
+    return data;
   } catch (e) {
     return thunkAPI.rejectWithValue(e);
 

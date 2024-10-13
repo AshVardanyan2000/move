@@ -1,7 +1,7 @@
 class Utils {
-  static setMoveId =(id)=>sessionStorage.setItem('moveId', id);
+  static setMoveIds =(ids)=>sessionStorage.setItem('moveIds', ids);
 
-  static getMoveId =()=>sessionStorage.getItem('moveId');
+  static getMoveIds =()=>(sessionStorage.getItem('moveIds') || '').split(",");
 
   static secToHours(seconds) {
     const hours = Math.floor(seconds / 3600);
