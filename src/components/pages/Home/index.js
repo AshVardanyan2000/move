@@ -56,9 +56,9 @@ const Index = () => {
         <div className='home_wrapper'>
           <Menu/>
 
-          <div className='home_left'>
-            <div className="home_left_title_wrapper">
-              <div className="home_left_title"
+          <div className='home_moves'>
+            <div className="home_moves_title_wrapper">
+              <div className="home_moves_title"
                    style={{ backgroundImage: videoPlay ? 'unset' : `url(/images/${featured.CoverImage})` }}>
 
                 {videoPlay && (
@@ -76,7 +76,7 @@ const Index = () => {
                     </video>
                   </div>
                 )}
-                <div className="home_left_title_info_wrapper">
+                <div className="home_moves_title_info_wrapper">
                   <h2>MOVIE</h2>
                   {/* we have both Title and TitleImage in the json object,
                   I only founf TitleImage in the design that is why not used title in any place,
@@ -85,7 +85,7 @@ const Index = () => {
                   {/*<h1>{featured.Title}</h1>*/}
                   <img src={`/images/${featured.TitleImage}`} alt="Movie Logo" className="movie-logo"/>
 
-                  <div className="home_left_title_info">
+                  <div className="home_moves_title_info">
                     <p>{featured.Category}</p>
 
                     <p>{featured.ReleaseYear}</p>
@@ -114,7 +114,7 @@ const Index = () => {
               </div>
             </div>
 
-            <div className='home_left_slider_wrapper'>
+            <div className='home_moves_slider_wrapper'>
               <h2>Trending Now</h2>
 
               <Slider list={tendingNow} onClick={onChangeFeaturedInfo}/>
